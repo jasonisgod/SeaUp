@@ -65,7 +65,8 @@ function onDOMLoaded(e) {
     setInterval(() => {
         $(`#su-svg-1`).css('height', (99 - counter) + '%')
         $(`#su-svg-2`).css('height', counter + '%')
-        counter = (counter + 1) % 100;
+        counter = Math.min(counter + 1, 100)
+            // counter = (counter + 1) % 100;
     }, 50);
 
 }
