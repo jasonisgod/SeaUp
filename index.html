@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SeaUp</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='style.css'> -->
+    <!-- <script src='script.js'></script> -->
+
+    <style>
+        body {
+            background-color: #EBF2F5;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #animationWindow {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+
+</head>
+
+<body translate="no">
+    <div id="animationWindow">
+    </div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.10.1/bodymovin.min.js'></script>
+    <script id="rendered-js">
+        var select = function(s) {
+                return document.querySelector(s);
+            },
+            selectAll = function(s) {
+                return document.querySelectorAll(s);
+            },
+            animationWindow = select('#animationWindow'),
+            animData = {
+                wrapper: animationWindow,
+                animType: 'svg',
+                loop: true,
+                prerender: true,
+                autoplay: true,
+                path: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/play_fill_loader.json',
+                rendererSettings: {
+                    //context: canvasContext, // the canvas context
+                    //scaleMode: 'noScale',
+                    //clearCanvas: false,
+                    //progressiveLoad: false, // Boolean, only svg renderer, loads dom elements when needed. Might speed up initialization for large number of elements.
+                    //hideOnTransparent: true //Boolean, only svg renderer, hides elements when opacity reaches 0 (defaults to true)
+                }
+            },
+            anim;
+
+        anim = bodymovin.loadAnimation(animData);
+        anim.addEventListener('DOMLoaded', onDOMLoaded);
+        anim.setSpeed(1);
+
+        function onDOMLoaded(e) {
+
+            anim.addEventListener('complete', function() {});
+        }
+
+        // ScrubBodymovinTimeline(anim);
+        //# sourceURL=pen.js
+
+        // 
+        /*
+            // up animation
+            (body div svg g g[-1] g).transform
+            transform="matrix(20,0,0,15,500,300)"
+        */
+    </script>
+
+
+
+</body>
+
+</html>
