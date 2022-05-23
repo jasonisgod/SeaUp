@@ -48,7 +48,6 @@ function onDOMLoaded(e) {
     $('#su-wave').css("fill", SU_BGCOLOR);
 
     $("path").each(function(index) {
-        // var sw = $(this).css("strokeWidth");
         console.log("path sw", $(this).css("stroke"))
         if ($(this).css("strokeWidth") == "16px")
             $(this).css("strokeWidth", SU_WIDTH);
@@ -56,39 +55,12 @@ function onDOMLoaded(e) {
             $(this).css("stroke", SU_COLOR);
         if ($(this).css("fill") == "rgb(247, 70, 62)")
             $(this).css("fill", SU_COLOR);
-        // var sw = $(this).prop("stroke-width")
-        // console.log("path sw", sw)
-        // if (sw == "16")
-        //     $(this).prop("stroke-width", "32")
     });
 
     setInterval(() => {
         $(`#su-svg-1`).css('height', (99 - counter) + '%')
         $(`#su-svg-2`).css('height', counter + '%')
-        counter = Math.min(counter + 1, 100)
-            // counter = (counter + 1) % 100;
-    }, 50);
+        counter = Math.min(counter + 10, 100)
+    }, 500);
 
 }
-
-
-
-
-
-//document.querySelector(`#SVG${this.id} rect`).setAttribute('height',this.value+'%')
-
-// ScrubBodymovinTimeline(anim);
-//# sourceURL=pen.js
-
-// 
-/*
-// up animation
-(body div svg g g[-1] g).transform
-transform="matrix(20,0,0,15,500,300)"
-*/
-
-// console.log('setTimeout')
-// setInterval(() => {
-//     console.log('setTimeout inside')
-//     jsonisgod()
-// }, 5000);
