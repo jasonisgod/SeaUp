@@ -33,7 +33,7 @@ anim.addEventListener('DOMLoaded', onDOMLoaded);
 anim.setSpeed(1);
 
 anim.addEventListener('complete', function() {
-    console.log('complete')
+    // console.log('complete')
 });
 
 
@@ -41,9 +41,11 @@ var counter = 0;
 
 function onDOMLoaded(e) {
 
-    console.log('onDOMLoaded')
+    // console.log('onDOMLoaded')
 
-    $('#su-rect').css("fill", SU_BGCOLOR);
+    $('#su-rect-1').css("fill", "white");
+    $('#su-rect-2').css("fill", SU_BGCOLOR);
+    $('#su-wave').css("fill", SU_BGCOLOR);
 
     $("path").each(function(index) {
         // var sw = $(this).css("strokeWidth");
@@ -61,9 +63,10 @@ function onDOMLoaded(e) {
     });
 
     setInterval(() => {
-        document.querySelector(`#su-svg rect`).setAttribute('height', counter + '%')
-        counter = (counter + 10) % 100;
-    }, 500);
+        $(`#su-svg-1`).css('height', (99 - counter) + '%')
+        $(`#su-svg-2`).css('height', counter + '%')
+        counter = (counter + 1) % 100;
+    }, 50);
 
 }
 
